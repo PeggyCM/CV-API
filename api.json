@@ -1,0 +1,94 @@
+{
+  "CV": {
+    "Titre": "L'AMÉLIORATION EN CONTINU",
+    "SsTitre": "TESTEUSE LOGICIEL",
+    "Nom": "COMBEAU-MANSOUR",
+    "Prenom": "Peggy",
+    "Ville" : "Sainte-Foy-Les-Lyon",
+
+    "Competences": [
+      {
+        "Type": "Administration système",
+        "Libelle": "Fedora, VirtualBox, Docker"
+      },
+      {
+        "Type": "Tests automatisés fonctionnels",
+        "Libelle": "Python, Selenium, Robot Framework, Pytest"
+      },
+      {
+        "Type": "Tests automatisés de système/API",
+        "Libelle": "Postman, SOAP UI"
+      },
+      {
+        "Type": "Éditeurs de code",
+        "Libelle": "VS Code, Cursor, WindSurf"
+      },
+      {
+        "Type": "Web frontend",
+        "Libelle": "HTML, CSS, Tailwind CSS, javascript"
+      },
+      {
+        "Type": "API rest et soap",
+        "Libelle": "json, XML"
+      },
+      {
+        "Type": "IA / DATA",
+        "Libelle": "ChatGPT, Grok, AI Studio, Perplexity, Le Chat"
+      },
+      {
+        "Type": "Outils de gestion de projet",
+        "Libelle": "Jira, Test Director"
+      },
+      {
+        "Type": "Mainframe IBM/MVS",
+        "Libelle": "COBOL, JCL, TSO/ISPF"
+      },
+      {
+        "Type": "Base de données",
+        "Libelle": "SQL, NoSQL, PostgreSQL"
+      },
+      {
+        "Type": "Outil de conception graphique",
+        "Libelle": "Canva"
+      }
+    ],
+
+    "Experiences": [
+      {
+        "Emploi": "Responsable qualité applicatif",
+        "Societe": "GFI",
+        "Periode": "2006-2009",
+        "Mission": "Coordination de 5 personnes à la Société Générale pour la qualification d’évolutions dans le domaine du risque."
+      },
+      {
+        "Emploi": "Développeuse/Testeuse",
+        "Societe": "BTD Consulting",
+        "Periode": "2001-2006",
+        "Mission": "Tests manuels de programmes chez Gestitres (Multi-affiliation). Tests manuels des programmes à la SG (euro, RIB invariant, gestion des guichets, opérations de caisse)."
+      },
+      {
+        "Emploi": "Développeuse/Testeuse",
+        "Societe": "CSSI",
+        "Periode": "1997-2001",
+        "Mission": "Tests manuels de programmes COBOL pour l’an 2000 à la Barclays. Coordination de 4 personnes pendant la migration en Cobol de AGF/Allianz. Création de l’environnement de tests an 2000 de Gestitres et coordination de 5 personnes."
+      },
+      {
+        "Emploi": "Auxiliaire petite enfance",
+        "Societe": "Collectivités et particuliers",
+        "Periode": "2015-2025",
+        "Mission": "Encadrement jusqu’à 30 enfants, garantie des besoins, éveil, préparation de bulletins de paie et contrats de travail."
+      }
+    ],
+
+    "Formations": [
+      {
+        "Intitule": "Testeur Logiciel",
+        "dateObtention": "2025"
+      },
+      {
+        "Intitule": "Maîtrise MIAGE",
+        "dateObtention": "1997"
+      }
+    ]
+  }
+}
