@@ -24,10 +24,6 @@ pdf_filename = "cv_design.pdf"
 c = canvas.Canvas(pdf_filename, pagesize=letter)
 width, height = letter
 
-# Définir la position de départ pour écrire sur la page (x, y)
-x = 72  # Coordonnée horizontale (1 pouce depuis la gauche)
-y = 800  # Coordonnée verticale (commencer vers le haut de la page)
-
 # -------- En-tête du CV --------
 # Créer un style centré à partir du style Normal (méthode n°1)
 style_centre_nom = ParagraphStyle(
@@ -35,12 +31,12 @@ style_centre_nom = ParagraphStyle(
     parent=styles['Normal'],
     alignment=TA_CENTER,  # Centre le texte
     fontName="Helvetica-Bold",  # Choisir une police en gras
-    fontSize=25,  # Taille du texte
+    fontSize=20,  # Taille du texte
     textColor=colors.blue  # Couleur du texte : bleu
 )
 nomComplet = (f"{cv.get('Prenom', '')} {cv.get('Nom', '')}")
 x = 72  # Marge gauche (1 inch)
-y = height - 72  # Marge du haut (1 inch)
+y = height - 36  # Marge du haut (1 inch)
 largeur_max = width - 2 * 72  # Largeur de la page - marges
 
 # Créer le paragraphe avec le texte
@@ -60,7 +56,7 @@ sstitre = f"{cv.get('SsTitre', '')}"
 # Choisir la police et la taille
 c.setFillColor(colors.black)  # Texte en noir
 font = "Helvetica-Bold"
-font_size = 20
+font_size = 18
 
 # Calculer la largeur du texte
 titre_width = c.stringWidth(titre, font, font_size)
@@ -72,12 +68,12 @@ x = (letter[0] - titre_width) / 2  # letter[0] donne la largeur de la page (612 
 # Mettre en gras et écrire le texte
 c.setFont(font, font_size)
 c.drawString(x, y, titre)
-y -= 30
+y -= 25
 x = (letter[0] - sstitre_width) / 2  # letter[0] donne la largeur de la page (612 points)
 c.drawString(x, y, sstitre)
 c.setFont("Helvetica", 12)  # Revenir à une police normale, taille 12
 
-y -= 30
+y -= 25
 x = 72
 
 c.drawString(x, y, f"📍 {cv.get('Ville', '')}")  # Affiche la ville avec un emoji localisation
@@ -120,21 +116,42 @@ for exp in cv.get('Experiences', []):
     y -= hauteur_paragraphe  # Laisser un peu d'espace avant la prochaine expérience
      
 
-# -------- Section : Compétences --------
+# -------- Section : Compétences (avec tableau coloré) --------
+from reportlab.platypus import Table, TableStyle
+
 y -= 10
-c.setFont("Helvetica-Bold", 14)  # Titre de section en gras
-c.setFillColor(colors.blueviolet)  # Couleur du titre : magenta
-c.drawString(x, y, "Compétences :")  # Titre de la section
-y -= 15  # Espace après le titre
+c.setFont("Helvetica-Bold", 14)
+c.setFillColor(colors.blueviolet)
+c.drawString(x, y, "Compétences :")
+y -= 10
 
-c.setFont("Helvetica", 12)  # Texte normal pour le contenu
-
-# Parcourir toutes les compétences listées
+# Préparer les données du tableau
+data_table = [["Type", "Libellé"]]  # En-têtes
 for comp in cv.get('Competences', []):
-    c.setFillColor(colors.black)  # Texte en noir
-    # Affiche le type de compétence suivi du libellé
-    c.drawString(x, y, f"{comp.get('Type', '')}: {comp.get('Libelle', '')}")
-    y -= 15  # Aller à la ligne suivante
+    data_table.append([comp.get("Type", ""), comp.get("Libelle", "")])
+
+# Créer le tableau
+table = Table(data_table, colWidths=[2.5 * inch, 3.5 * inch])
+
+# Appliquer un style au tableau
+table.setStyle(TableStyle([
+    ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#3498db")),  # En-tête bleu
+    ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),  # Texte blanc en-tête
+    ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+    ('FONTSIZE', (0, 0), (-1, -1), 10),
+    ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
+    ('BACKGROUND', (0, 1), (-1, -1), colors.whitesmoke),
+    ('GRID', (0, 0), (-1, -1), 0.5, colors.grey)
+]))
+
+# Dessiner le tableau à la position (x, y)
+table.wrapOn(c, width, height)
+table.drawOn(c, x, y - table._height)
+
+# Ajuster 'y' après le tableau
+y -= table._height + 20
+
 
 # -------- Section : Formations --------
 y -= 15

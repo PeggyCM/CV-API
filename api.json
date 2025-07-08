@@ -9,11 +9,23 @@
     "Competences": [
       {
         "Type": "Administration système",
-        "Libelle": "Fedora, VirtualBox, Docker"
+        "Libelle": "Fedora, Windows"
+      },
+      {
+        "Type": "Virtualisation",  
+        "Libelle":"VirtualBox, Docker"
+      },
+      {
+        "Type": "Langages",
+        "Libelle": "Python, Javascript, Cobol"
       },
       {
         "Type": "Tests automatisés fonctionnels",
-        "Libelle": "Python, Selenium, Robot Framework, Pytest"
+        "Libelle": "Selenium, Robot Framework"
+      },
+      {
+        "Type": "Tests unitaires Python",
+        "Libelle": "Pytest"
       },
       {
         "Type": "Tests automatisés de système/API",
@@ -25,15 +37,11 @@
       },
       {
         "Type": "Web frontend",
-        "Libelle": "HTML, CSS, Tailwind CSS, javascript"
+        "Libelle": "HTML, CSS, Tailwind CSS"
       },
       {
         "Type": "API rest et soap",
         "Libelle": "json, XML"
-      },
-      {
-        "Type": "IA / DATA",
-        "Libelle": "ChatGPT, Grok, AI Studio, Perplexity, Le Chat"
       },
       {
         "Type": "Outils de gestion de projet",
@@ -41,7 +49,7 @@
       },
       {
         "Type": "Mainframe IBM/MVS",
-        "Libelle": "COBOL, JCL, TSO/ISPF"
+        "Libelle": "JCL, TSO/ISPF"
       },
       {
         "Type": "Base de données",
@@ -92,3 +100,4 @@
     ]
   }
 }
+
